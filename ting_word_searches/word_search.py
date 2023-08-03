@@ -1,19 +1,27 @@
 def exists_word(word, instance):
     """Aqui irá sua implementação"""
-    lista = instance.queue
+    palavra = word.lower()
+    dict = []
+    ocorrencias = []
 
-    if not word:
+    for i in instance.queue:
+        linhas = i["linhas_do_arquivo"]
+        nome = i["nome_do_arquivo"]
+
+        for index, texto in enumerate(linhas):
+            if palavra in texto.lower():
+                ocorrencias.append({"linha": index + 1})
+        dict.append(
+            {
+                "palavra": palavra,
+                "arquivo": nome,
+                "ocorrencias": ocorrencias,
+            }
+        )
+    if ocorrencias == []:
         return []
 
-    for i in range(len(lista)):
-        if word not in lista[i]["linhas_do_arquivo"]:
-            return []
-
-        return [{
-            "palavra": word,
-            "arquivo": lista[i]["nome_do_arquivo"],
-            "ocorrencias": 2
-        }]
+    return dict
 
 
 """ dict_found = {
