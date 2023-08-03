@@ -15,10 +15,10 @@ class Queue(AbstractQueue):
         if len(self.queue) < 1:
             return None
         value = self.queue[-1]
-        print('LISTA DE VALORES ANTES', self.queue, self.queue.index(value))
+        # print('LISTA DE VALORES ANTES', self.queue, self.queue.index(value))
 
         del self.queue[self.queue.index(value)]
-        print('LISTA DE VALORES DEPOIS', self.queue, self.queue[-1])
+        # print('LISTA DE VALORES DEPOIS', self.queue, self.queue[-1])
         # self.queue[-1]
         return self.queue[0]
 
