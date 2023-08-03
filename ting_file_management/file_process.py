@@ -34,7 +34,7 @@ def file_metadata(instance, position):
     fila = instance.queue
 
     if position not in range(len(fila)):
-        print('Índice Inválido ou Inexistente', file=sys.stderr)
+        print('Posição inválida', file=sys.stderr)
 
     found = instance.search(position)
     print(found, file=sys.stdout)
