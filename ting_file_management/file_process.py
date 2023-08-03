@@ -38,4 +38,3 @@ def file_metadata(instance, position):
 
     found = instance.search(position)
     print(found, file=sys.stdout)
-
