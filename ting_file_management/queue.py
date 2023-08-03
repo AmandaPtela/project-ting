@@ -12,15 +12,8 @@ class Queue(AbstractQueue):
         self.queue.append(value)
 
     def dequeue(self):
-        if len(self.queue) < 1:
-            return None
-        value = self.queue[-1]
-        # print('LISTA DE VALORES ANTES', self.queue, self.queue.index(value))
-
-        del self.queue[self.queue.index(value)]
-        # print('LISTA DE VALORES DEPOIS', self.queue, self.queue[-1])
-        # self.queue[-1]
-        return self.queue[0]
+        if len(self.queue) > 0:
+            return self.queue.pop(0)
 
     def search(self, index):
         # print('VÁLIDO TEM QUE SER ENTRE', range(0, len(self.queue) - 1))

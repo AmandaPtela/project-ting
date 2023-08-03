@@ -26,15 +26,14 @@ def remove(instance):
     if len(instance.queue) == 0:
         print('Não há elementos', file=sys.stdout)
     else:
-        dequeued = 'Removido'
-        print(f'Arquivo {dequeued} removido com sucesso', file=sys.stdout)
+        deq = instance.dequeue()["nome_do_arquivo"]
+        print(f'Arquivo {deq} removido com sucesso', file=sys.stdout)
 
 
 def file_metadata(instance, position):
-    fila = instance.queue
+    try:
+        found = instance.search(position)
+        print(found, file=sys.stdout)
 
-    if position not in range(len(fila)):
+    except IndexError:
         print('Posição inválida', file=sys.stderr)
-
-    found = instance.search(position)
-    print(found, file=sys.stdout)
